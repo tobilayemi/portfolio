@@ -1,32 +1,18 @@
+<h1 align="center">Hi 👋, I'm Oluwatobi Olatunbosun</h1>
+<h3 align="center">Experienced professional with years of expertise in Data Management and Monitoring, Evaluation & Learning (MEL) of public health programs (HIV/TB, and maternal and newborn health). Proven track record of effectively implementing and managing data systems, ensuring accurate and timely collection, analysis, and reporting. Highly skilled in utilizing advanced tools and methodologies to monitor program performance, identify trends, and provide data-driven recommendations for improvement. Strong proficiency in data management, quality assurance, and data visualization using BI tools. Committed to optimizing program outcomes through strategic data utilization, fostering a culture of learning, and driving evidence-based decision-making.</h3>
 
-Demo content images* are courtesy of the ridiculously talented Felicia Simion. Check out
-more of her amazing work over at deviantART:
+- 🌱 I’m currently learning **Python for Data Analysis**
 
-http://ineedchemicalx.deviantart.com/
+- 👨‍💻 All of my projects are available at [https://tobilayemi.github.io/portfolio](https://tobilayemi.github.io/portfolio)
 
-(* = Not included! Only meant for use with my own on-site demo, so please do NOT download
-and/or use any of Felicia's work without her explicit permission!)
+- 💬 Ask me about **Microsoft PowerBI, R for Data analysis, Monitoring, Evaluation and Learning, and Data Analysis**
 
-Demo banner images* courtesy of Unsplash, a radtastic collection of CC0 (public domain)
-images you can use for pretty much whatever.
+- 📫 How to reach me **adebukolaoluwatobi@gmail.com**
 
-(* = Not included)
+<h3 align="left">Connect with me:</h3>
+<p align="left">
+<a href="https://linkedin.com/in/oluwatobi olatunbosun" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="oluwatobi olatunbosun" height="30" width="40" /></a>
+</p>
 
-
-
-PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
-
-
-Credits:
-
-	Demo Images:
-		Felicia Simion (ineedchemicalx.deviantart.com)
-		Unsplash (unsplash.com)
-
-	Icons:
-		Font Awesome (fontawesome.io)
-
-	Other
-		jQuery (jquery.com)
-		Scrollex (github.com/ajlkn/jquery.scrollex)
-		Responsive Tools (github.com/ajlkn/responsive-tools)
+<h3 align="left">Languages and Tools:</h3>
+<p align="left"> <a href="https://www.microsoft.com/en-us/sql-server" target="_blank" rel="noreferrer"> <img src="https://www.svgrepo.com/show/303229/microsoft-sql-server-logo.svg" alt="mssql" width="40" height="40"/> </a> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> <a href="https://www.postgresql.org" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original-wordmark.svg" alt="postgresql" width="40" height="40"/> </a> </p>
