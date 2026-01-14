@@ -1791,6 +1791,20 @@ input, select, textarea {
 				margin: 0 auto;
 				width: auto;
 			}
+			
+		.image.avatar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.image.avatar img {
+  width: 180px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 
 /* List */
 
@@ -2575,6 +2589,30 @@ input, select, textarea {
 				}
 
 	}
+
+
+/* Custom List Styles for Portfolio */
+ul.check-list {
+    list-style: none; /* Removes default dots */
+    padding-left: 0;
+    text-align: left;
+}
+
+ul.check-list li {
+    position: relative;
+    padding-left: 30px; /* Space for the checkmark */
+    margin-bottom: 0.8em;
+    line-height: 1.5;
+}
+
+ul.check-list li::before {
+    content: '✔'; /* The checkmark symbol */
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: #888; /* Change this color if you want the checkmark to stand out */
+    font-weight: bold;
+}
 
 /* Mobile */
 
