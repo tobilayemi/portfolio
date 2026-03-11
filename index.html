@@ -1,282 +1,400 @@
-<!DOCTYPE HTML>
-<!--
-	My Portfolio by Oluwatobi Olatunsun
-	March2025
--->
-<html>
-	<head>
-		<title>My Portfolio</title>
-		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="assets/css/main.css" />
-	</head>
-	<body class="is-preload">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oluwatobi Olatunbosun — Portfolio</title>
+  <meta name="description" content="Data Analyst, MEL Specialist & Visualization Expert. Over 7 years transforming public health data into clarity, action, and impact." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  favicon: <link rel="icon" type="image/png" href="./images/headshot.jpg" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: #0f0d0b; color: #e0d6c8; font-family: 'DM Sans', sans-serif; overflow-x: hidden; }
+    ::selection { background: rgba(201,168,76,0.3); color: #fff; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
 
-		<!-- Header -->
-			<div id="header">
+    /* NAV */
+    .nav { position: fixed; top: 0; left: 0; width: 100%; z-index: 100; background: rgba(15,13,11,0.85); backdrop-filter: blur(14px); border-bottom: 1px solid rgba(201,168,76,0.10); }
+    .nav-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; padding: 0 28px; }
+    .nav-logo { font-family: 'Playfair Display', serif; color: #c9a84c; font-weight: 700; font-size: 22px; letter-spacing: 1px; }
+    .nav-logo img {height: 36px;}
+    .nav-logo {box-shadow: 0 0 8px rgba(201,168,76,0.25);}
+    .nav-links { display: flex; gap: 4px; }
+    .nav-links a { color: #a09585; font-size: 14px; font-weight: 500; letter-spacing: 0.7px; padding: 16px; border-bottom: 2px solid transparent; transition: all 0.25s; }
+    .nav-links a:hover, .nav-links a.active { color: #c9a84c; background: rgba(201,168,76,0.08); border-bottom-color: #c9a84c; }
+    .nav-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(201,168,76,0.35);
+  background: rgba(201,168,76,0.05);
+}
 
-				<div class="top">
+  .nav-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;}
 
-					<!-- Logo -->
-					<div id="logo">
-						<span class="image avatar48">
-							<img src="images/avatar.jpg" alt="Avatar" />
-						</span>
-						<h1 id="title">Oluwatobi Olatunbosun</h1>
-						<p>Data Analyst | Quality Improvement Strategist | M&E Specialist</p>
-					</div>
+    /* ANIMATIONS */
+    @keyframes heroGlow { 0%,100%{opacity:0.25;transform:translate(-50%,-50%) scale(1)} 50%{opacity:0.45;transform:translate(-50%,-50%) scale(1.08)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(30px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes lineGrow { from{width:0} to{width:64px} }
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+    .reveal { opacity: 0; transform: translateY(48px); transition: opacity 0.8s cubic-bezier(0.22,1,0.36,1), transform 0.8s cubic-bezier(0.22,1,0.36,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
 
+    /* HERO */
+    .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; overflow: hidden; padding: 100px 24px 60px; text-align: center; }
+    .hero-glow { position: absolute; top: 20%; left: 50%; width: 500px; height: 500px; background: radial-gradient(circle, rgba(201,168,76,0.12) 0%, transparent 70%); border-radius: 50%; transform: translate(-50%,-50%); animation: heroGlow 6s ease-in-out infinite; pointer-events: none; }
+    .hero-content { position: relative; z-index: 2; max-width: 900px; }
+    .avatar-wrap { width: 140px; height: 140px; border-radius: 50%; margin: 0 auto 32px; border: 3px solid rgba(201,168,76,0.4); padding: 4px; animation: fadeUp 1s ease forwards, float 5s ease-in-out infinite 1s; }
+    .avatar-wrap img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+    .hero-tag { color: #c9a84c; font-size: 13px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 16px; animation: fadeUp 1s ease 0.2s both; }
+    .hero-name { font-family: 'Playfair Display', serif; font-size: clamp(36px, 6vw, 68px); font-weight: 800; line-height: 1.1; margin-bottom: 20px; background: linear-gradient(135deg, #e8d48b 0%, #c9a84c 40%, #fff 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; animation: fadeUp 1s ease 0.4s both; }
+    .hero-line { width: 64px; height: 2px; margin: 0 auto 22px; background: linear-gradient(90deg, transparent, #c9a84c, transparent); animation: lineGrow 1.2s ease 0.7s both; }
+    .hero-desc { font-size: 17px; color: #a09585; line-height: 1.7; max-width: 600px; margin: 0 auto 36px; animation: fadeUp 1s ease 0.6s both; }
+    .hero-buttons { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; animation: fadeUp 1s ease 0.8s both; }
+    .btn-gold { background: linear-gradient(135deg, #c9a84c, #a08330); color: #0f0d0b; font-family: 'DM Sans', sans-serif; font-weight: 700; font-size: 14px; padding: 14px 32px; border-radius: 50px; letter-spacing: 1px; transition: transform 0.25s, box-shadow 0.25s; box-shadow: 0 4px 24px rgba(201,168,76,0.25); display: inline-block; }
+    .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 32px rgba(201,168,76,0.35); }
+    .btn-outline { color: #c9a84c; font-family: 'DM Sans', sans-serif; font-weight: 600; font-size: 14px; padding: 14px 32px; border-radius: 50px; letter-spacing: 1px; border: 1.5px solid rgba(201,168,76,0.35); transition: background 0.25s, border-color 0.25s; display: inline-block; }
+    .btn-outline:hover { background: rgba(201,168,76,0.08); border-color: #c9a84c; }
 
-					<!-- Nav -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#portfolio" id="portfolio-link"><span class="icon solid fa-th">Portfolio</span></a></li>
-								<li><a href="#about" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#contact" id="contact-link"><span class="icon solid fa-envelope">Contact</span></a></li>
-							</ul>
-						</nav>
+    /* SECTIONS */
+    .section { padding: 100px 24px; max-width: 1100px; margin: 0 auto; }
+    .section-tag { color: #c9a84c; font-size: 12px; font-weight: 600; letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; }
+    .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 4vw, 44px); font-weight: 700; color: #e8d48b; margin-bottom: 8px; line-height: 1.2; }
+    .section-line { width: 48px; height: 2px; background: #c9a84c; margin-bottom: 36px; }
 
-				</div>
+    /* ABOUT */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+    .about-img-wrap { border-radius: 16px; overflow: hidden; border: 1px solid rgba(201,168,76,0.12); position: relative; }
+    .about-img-wrap img { width: 100%; height: auto; filter: brightness(0.88) contrast(1.05); }
+    .about-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,13,11,0.5) 0%, transparent 40%); }
+    .about-text { font-size: 15.5px; color: #c4b8a8; line-height: 1.85; margin-bottom: 20px; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 12px; }
+    .stat-card { background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.10); border-radius: 12px; padding: 18px 16px; text-align: center; }
+    .stat-num { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 800; color: #c9a84c; }
+    .stat-label { font-size: 12px; color: #a09585; letter-spacing: 0.5px; margin-top: 4px; }
 
-				<div class="bottom">
+    /* SKILLS */
+    .skills-area { margin-top: 80px; }
+    .skills-subtitle { font-family: 'Playfair Display', serif; font-size: 28px; font-weight: 700; color: #e8d48b; margin-bottom: 36px; }
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
+    .skill-cat-label { font-size: 11px; font-weight: 700; color: #c9a84c; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 18px; padding-bottom: 8px; border-bottom: 1px solid rgba(201,168,76,0.15); }
+    .skill-row { margin-bottom: 18px; }
+    .skill-header { display: flex; justify-content: space-between; margin-bottom: 5px; }
+    .skill-name { color: #e0d6c8; font-size: 14px; font-weight: 500; letter-spacing: 0.5px; }
+    .skill-pct { color: #a08c6e; font-size: 13px; }
+    .skill-track { height: 5px; background: #23201c; border-radius: 8px; overflow: hidden; }
+    .skill-fill { height: 100%; width: 0; border-radius: 8px; background: linear-gradient(90deg, #c9a84c 0%, #e8d48b 100%); transition: width 1.2s cubic-bezier(0.22,1,0.36,1); }
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://x.com/tobilayemi" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-							<li><a href="https://www.linkedin.com/in/oluwatobi-olatunbosun" class="icon brands fa-linkedin"><span class="label">LinkedIn</span></a></li>
-							<!-- <li><a href="#" class="icon brands fa-github"><span class="label">Github</span></a></li>
-							<li><a href="#" class="icon brands fa-dribbble"><span class="label">Dribbble</span></a></li>-->
-							<li><a href="mailto:adebukolaoluwatobi@gmail.com" class="icon solid fa-envelope"><span class="label">Email</span></a></li>
-						</ul>
+    /* PORTFOLIO */
+    .portfolio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 24px; }
+    .project-card { background: rgba(30,27,23,0.7); border-radius: 16px; overflow: hidden; border: 1px solid rgba(201,168,76,0.07); transition: background 0.3s, border-color 0.3s; display: block; }
+    .project-card:hover { background: rgba(201,168,76,0.06); border-color: rgba(201,168,76,0.22); }
+    .project-card-img { width: 100%; height: 200px; overflow: hidden; position: relative; }
+    .project-card-img img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.82); transition: filter 0.5s, transform 0.7s; }
+    .project-card:hover .project-card-img img { filter: brightness(1.08); transform: scale(1.04); }
+    .project-card-img::after { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 60px; background: linear-gradient(transparent, rgba(15,13,11,0.95)); }
+    .project-card-body { padding: 20px 22px 18px; }
+    .project-card-title { font-family: 'Playfair Display', serif; color: #e8d48b; font-size: 17px; font-weight: 600; margin-bottom: 10px; line-height: 1.35; }
+    .project-card-desc { color: #a09585; font-size: 13.5px; line-height: 1.65; margin-bottom: 14px; }
+    .project-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+    .tag { background: rgba(201,168,76,0.10); color: #c9a84c; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; letter-spacing: 0.5px; }
+    .project-link { color: #c9a84c; font-size: 12px; margin-top: 10px; display: inline-block; font-weight: 600; }
 
-				</div>
+    /* SPEAKING */
+    .speaking-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+    .speaking-img-card { border-radius: 16px; overflow: hidden; position: relative; border: 1px solid rgba(201,168,76,0.10); min-height: 360px; }
+    .speaking-img-card img { width: 100%; height: 100%; object-fit: cover; filter: brightness(0.85); position: absolute; inset: 0; }
+    .speaking-img-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(15,13,11,0.9) 0%, rgba(15,13,11,0.3) 50%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 28px; }
+    .speaking-img-overlay h3 { font-family: 'Playfair Display', serif; color: #e8d48b; font-size: 20px; font-weight: 700; margin-bottom: 8px; }
+    .speaking-img-overlay p { color: #a09585; font-size: 13.5px; line-height: 1.6; }
+    .speaking-list-card { background: rgba(30,27,23,0.7); border-radius: 16px; border: 1px solid rgba(201,168,76,0.10); padding: 32px; display: flex; flex-direction: column; justify-content: center; }
+    .speaking-list-card h3 { font-family: 'Playfair Display', serif; color: #e8d48b; font-size: 22px; font-weight: 700; margin-bottom: 20px; }
+    .speaking-item { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 14px; }
+    .speaking-item .diamond { color: #c9a84c; font-size: 16px; line-height: 1.6; flex-shrink: 0; }
+    .speaking-item span:last-child { color: #c4b8a8; font-size: 14.5px; line-height: 1.6; }
 
-			</div>
+    /* CONTACT */
+    .contact-section { padding: 100px 24px 60px; text-align: center; position: relative; }
+    .contact-glow { position: absolute; bottom: 30%; left: 50%; width: 400px; height: 400px; background: radial-gradient(circle, rgba(201,168,76,0.07) 0%, transparent 70%); border-radius: 50%; transform: translate(-50%, 0); pointer-events: none; }
+    .contact-desc { font-size: 16px; color: #a09585; max-width: 500px; margin: 0 auto 36px; line-height: 1.7; }
+    .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+    .contact-btn { display: flex; align-items: center; gap: 10px; background: rgba(30,27,23,0.8); border: 1px solid rgba(201,168,76,0.15); border-radius: 50px; padding: 14px 28px; font-family: 'DM Sans', sans-serif; font-size: 14px; font-weight: 500; transition: border-color 0.25s, background 0.25s; color: #e0d6c8; }
+    .contact-btn:hover { border-color: #c9a84c; background: rgba(201,168,76,0.08); }
+    .contact-btn .icon { font-size: 16px; color: #c9a84c; }
+    .footer { margin-top: 80px; padding-top: 24px; border-top: 1px solid rgba(201,168,76,0.08); text-align: center; }
+    .footer p { font-size: 12px; color: #5a4f43; letter-spacing: 0.5px; }
 
-		<!-- Main -->
-			<div id="main">
+    /* RESPONSIVE */
+    @media (max-width: 768px) {
+      .about-grid, .speaking-grid { grid-template-columns: 1fr; }
+      .nav-links a { padding: 14px 10px; font-size: 12px; }
+      .portfolio-grid { grid-template-columns: 1fr; }
+      .hero { padding: 90px 20px 40px; }
+      .section { padding: 70px 20px; }
+      .nav-inner { padding: 0 16px; }
+    }
+    @media (max-width: 480px) {
+      .nav-links a { padding: 12px 7px; font-size: 11px; letter-spacing: 0; }
+      .nav-logo { font-size: 18px; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .contact-links { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
 
-				<!-- Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
+ <!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
 
-							<header>
-								<h2 class="alt">Hello! I'm <strong>Oluwatobi Olatunbosun</strong>, a <strong>Public Speaker</strong>, dedicated <strong>Data Visualization Specialist</strong> and <strong>Data Management</strong> professional.
-									<p>I am passionate about transforming data into meaningful insights that drive impact. With over seven years of experience in Public Health programs and humanitarian projects, I specialize in <strong>Monitoring Evaluation & Learning (MEL)</strong> , <Strong>data systems management</Strong>, and <strong>dashboard development.</strong> </p>
-										<p>My expertise lies in ensuring data quality, optimizing reporting processes, and providing decision-makers with data data-driven observations using <strong>Power BI</strong>, <strong>Tableau</strong>, and <strong>R</strong>. </p>
-										<p>Beyond my technical work, I also train individuals and organizations in data analytics, data cleaning, and documentation processes which inturn help teams develop skills needed to manage and use data effectively.</p>
-							</header>
+    <a href="#home" class="nav-logo">
+      <img src="./images/avatar-head.png" alt="T.O. Logo" />
+    </a>
 
-							<footer>
-								<a href="https://drive.google.com/file/d/10tvez7KIpJVzmp9wRjWT9HeaEuPNAM5J/view?usp=sharing" class="button scrolly" target="_blank">Click Here to See My CV</a>
-							</footer>
+    <div class="nav-links">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#speaking">Speaking</a>
+      <a href="#contact">Contact</a>
+    </div>
 
-						</div>
-					</section>
+  </div>
+</nav>
 
-				<!-- Portfolio -->
-					<section id="portfolio" class="two">
-						<div class="container">
+  <!-- HERO -->
+  <section class="hero" id="home">
+    <div class="hero-glow"></div>
+    <div class="hero-content">
+      <div class="avatar-wrap">
+        <img src="./images/headshot.jpg" alt="Oluwatobi Olatunbosun" />
+      </div>
+      <p class="hero-tag">Data Analytics &bull; MEL &bull; Data Management &bull; Data Governance &bull; Data Science </p>
+      <h1 class="hero-name">Oluwatobi<br>Olatunbosun</h1>
+      <div class="hero-line"></div>
+      <p class="hero-desc">Transforming complex public health data into clarity, action, and impact. Over nine years of building data systems, dashboards, and analytical capacity for organizations across Nigeria.</p>
+      <div class="hero-buttons">
+        <a href="https://drive.google.com/file/d/10tvez7KIpJVzmp9wRjWT9HeaEuPNAM5J/view?usp=sharing" target="_blank" class="btn-gold">Download CV ↓</a>
+        <a href="https://www.linkedin.com/in/oluwatobi-olatunbosun" target="_blank" class="btn-outline">LinkedIn →</a>
+      </div>
+    </div>
+  </section>
 
-							<header>
-								<h2><strong>Portfolio</strong></h2>
-							</header>
+  <!-- ABOUT -->
+  <section class="section" id="about">
+    <div class="reveal">
+      <p class="section-tag">About Me</p>
+      <h2 class="section-title">Where data meets purpose.</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="about-grid">
+      <div class="reveal reveal-d1">
+        <div class="about-img-wrap">
+          <img src="./images/MGP-PstTobi1.jpg" alt="Oluwatobi" />
+          <div class="about-img-overlay"></div>
+        </div>
+      </div>
+      <div class="reveal reveal-d2">
+        <p class="about-text">I work at the intersection of Data Management and Programs Implementation. Over the years, I have supported public health and humanitarian initiatives across HIV, tuberculosis, and maternal and newborn health, helping teams strengthen systems and use information to guide action.</p>
+        <p class="about-text">My experience spans monitoring, evaluation, and learning, performance management, and digital data systems. I have led and supported the design of reporting structures, dashboards, and data collection processes that improve accountability, coordination, and decision making.</p>
+        <p class="about-text">Beyond technical delivery, I collaborate with diverse teams, facilitate learning sessions, and provide strategic guidance that builds confidence in data use. I am committed to growing capacity, strengthening institutions, and enabling evidence-informed decisions that translate into real world impact.</p>
+        <div class="stats-grid">
+          <div class="stat-card"><div class="stat-num">9+</div><div class="stat-label">Years Experience</div></div>
+          <div class="stat-card"><div class="stat-num">50+</div><div class="stat-label">Dashboards Built</div></div>
+          <div class="stat-card"><div class="stat-num">500+</div><div class="stat-label">Professionals Trained</div></div>
+          <div class="stat-card"><div class="stat-num">20+</div><div class="stat-label">States Covered</div></div>
+        </div>
+      </div>
+    </div>
 
-							<p>This section showcases a collection of my projects, 
-								highlighting my expertise in data management, visualization, and analytics. 
-								From interactive dashboards to data-driven reports and training materials, 
-								each project demonstrates my ability to transform raw data into meaningful insights. 
-								My work reflects commitment to accuracy, efficiency, and impact in optimizing Public Health programs, enhancing MEL processes, and training teams in data analytics.</p>
+    <!-- SKILLS -->
+    <div class="skills-area reveal" id="skills-section">
+      <p class="section-tag">Tools & Technologies</p>
+      <h3 class="skills-subtitle">My Technical Toolkit</h3>
+      <div class="skills-grid">
+        <div>
+          <p class="skill-cat-label">Visualization</p>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Power BI</span><span class="skill-pct">99%</span></div><div class="skill-track"><div class="skill-fill" data-level="99"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">DAX</span><span class="skill-pct">95%</span></div><div class="skill-track"><div class="skill-fill" data-level="95"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Apache Superset</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-level="85"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Tableau</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-level="80"></div></div></div>
+        </div>
+        <div>
+          <p class="skill-cat-label">Analytics</p>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">R / RStudio</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-level="90"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Power Query</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-level="90"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Excel / VBA</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-level="90"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">Python</span><span class="skill-pct">75%</span></div><div class="skill-track"><div class="skill-fill" data-level="75"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">SQL</span><span class="skill-pct">80%</span></div><div class="skill-track"><div class="skill-fill" data-level="80"></div></div></div>
+        </div>
+        <div>
+          <p class="skill-cat-label">Systems & Dev</p>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">DHIS2</span><span class="skill-pct">85%</span></div><div class="skill-track"><div class="skill-fill" data-level="85"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">KoboToolbox</span><span class="skill-pct">90%</span></div><div class="skill-track"><div class="skill-fill" data-level="90"></div></div></div>
+          <div class="skill-row"><div class="skill-header"><span class="skill-name">CSS</span><span class="skill-pct">65%</span></div><div class="skill-track"><div class="skill-fill" data-level="65"></div></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-								<p>In addition to project samples, this section includes pictures of some of my activities—capturing moments from training sessions, 
-									workshops, data analysis processes, and fieldwork.
-									Explore the projects below to see how I apply data to drive informed decision-making and improve program outcomes...</p>
+  <!-- PORTFOLIO -->
+  <section class="section" id="portfolio">
+    <div class="reveal">
+      <p class="section-tag">Portfolio</p>
+      <h2 class="section-title">Selected Work</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="project-card reveal">
+        <div class="project-card-img"><img src="/images/DSC_4339.jpg" alt="Power BI Training" /></div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">Power BI Training - NASCP / Federal Ministry of Health</h3>
+          <p class="project-card-desc">Led a hands-on Power BI training for the National AIDS and STDs Control Program team, covering data transformation, DAX functions, interactive dashboards, and data storytelling for HIV program analytics.</p>
+          <div class="project-tags"><span class="tag">Power BI</span><span class="tag">Training</span><span class="tag">HIV Data</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-card-img"><img src="/images/DSC_0346.jpg" alt="NAWS Launch" /></div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">NAWS Platform Launch - Data Visualization Keynote</h3>
+          <p class="project-card-desc">Presented at the launch of NAWS, a web platform by PHIS3 and FMOH/PEPFAR, sharing strategies on chart selection, color storytelling, and audience engagement through data narratives.</p>
+          <div class="project-tags"><span class="tag">Public Speaking</span><span class="tag">Data Viz</span><span class="tag">PEPFAR</span></div>
+        </div>
+      </div>
+      <div class="project-card reveal">
+        <div class="project-card-img"><img src="/images/BAOSystems.jpeg" alt="DHIS2 Training" /></div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">DHIS2 Event & Tracker Configuration - BAO Systems</h3>
+          <p class="project-card-desc">Completed intensive DHIS2 training on event-based and longitudinal tracking systems, gaining expertise in program configuration, rules, indicators, and analytics dashboards.</p>
+          <div class="project-tags"><span class="tag">DHIS2</span><span class="tag">Health Systems</span><span class="tag">Training</span></div>
+        </div>
+      </div>
+      <a href="https://drive.google.com/file/d/1BUHOoOQ-Z7nPPFsD_RzXgwsliA7ys7mQ/view?usp=sharing" target="_blank" class="project-card reveal">
+        <div class="project-card-img"><img src="/images/Screenshot%202025-03-19%20111808.png" alt="R Project" /></div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">Dr. Semmelweis - Handwashing Impact Analysis in R</h3>
+          <p class="project-card-desc">Built an analytical project in R exploring historical hospital mortality records to quantify the impact of handwashing on reducing maternal deaths, using ggplot2 for trend visualization.</p>
+          <div class="project-tags"><span class="tag">R</span><span class="tag">ggplot2</span><span class="tag">Public Health</span></div>
+          <span class="project-link">View Project →</span>
+        </div>
+      </a>
+      <div class="project-card reveal">
+        <div class="project-card-img"><img src="/images/Picture1.jpg" alt="DQA" /></div>
+        <div class="project-card-body">
+          <h3 class="project-card-title">Data Quality Assurance - HIV Program DQA</h3>
+          <p class="project-card-desc">Spearheaded routine data quality assessments across HIV programs, building automated DQA dashboards, training facility staff, and aligning processes with national and global reporting frameworks.</p>
+          <div class="project-tags"><span class="tag">DQA</span><span class="tag">Dashboards</span><span class="tag">MEL</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-							<div class="row">
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/DSC_4339.jpg" alt="" /></a>
-										<header>
-											<h3>I had the opportunity to conduct a Power BI training session for the National AIDS and STDs Control Program (NASCP) team at the Federal Ministry of Health. This session focused on equipping participants with data analytics skills using Power BI to analyze National HIV data and other disease areas.
+  <!-- SPEAKING -->
+  <section class="section" id="speaking">
+    <div class="reveal">
+      <p class="section-tag">Speaking & Training</p>
+      <h2 class="section-title">Sharing knowledge, building capacity.</h2>
+      <div class="section-line"></div>
+    </div>
+    <div class="speaking-grid">
+      <div class="speaking-img-card reveal reveal-d1">
+        <img src="/images/DSC_8655.jpg" alt="Public Speaking" />
+        <div class="speaking-img-overlay">
+          <h3>National HIV Surveillance Stakeholders Meeting</h3>
+          <p>Facilitated discussions among public health experts, policymakers, and stakeholders on HIV surveillance strategy, presenting data-informed recommendations and moderating sessions for alignment on national action points.</p>
+        </div>
+      </div>
+      <div class="speaking-list-card reveal reveal-d2">
+        <h3>What I bring to the stage</h3>
+        <div class="speaking-item"><span class="diamond">◆</span><span>Data storytelling and visualization best practices</span></div>
+        <div class="speaking-item"><span class="diamond">◆</span><span>Power BI masterclasses for public health teams</span></div>
+        <div class="speaking-item"><span class="diamond">◆</span><span>MEL system design and implementation workshops</span></div>
+        <div class="speaking-item"><span class="diamond">◆</span><span>Stakeholder engagement and event facilitation</span></div>
+        <div class="speaking-item"><span class="diamond">◆</span><span>Data quality assurance training and mentorship</span></div>
+      </div>
+    </div>
+  </section>
 
-												<p></p><Strong>During the training, I guided the team through:</Strong>
-												<p></p>✔ Data transformation and modeling to enhance data usability
-												<p></p>✔ Creating interactive dashboards for real-time insights
-												<p></p>✔ Using DAX functions for advanced calculations and trend analysis
-												<p></p>✔ Building meaningful visualizations to improve data storytelling
-												<p></p>✔ Best practices in data cleaning and integration for accurate reporting.
-												
-												<p></p>This training empowered the NASCP team to leverage Power BI for evidence-based decision-making in Public Health. It was a fulfilling experience to contribute to strengthening data-driven strategies in HIV/AIDS program management and beyond.</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/DSC_0346.jpg" alt="" /></a>
-										<header>
-											<h3>I had the honor of presenting at the official launch of NAWS, a cutting-edge web platform designed to transform how HIV data is visualized and utilized. Developed by PHIS3 in collaboration with the Federal Ministry of Health and the U.S. President’s Emergency Plan for AIDS Relief (PEPFAR), NAWS is set to enhance data-driven decision-making in the fight against HIV/AIDS.
+  <!-- CONTACT -->
+  <section class="contact-section" id="contact">
+    <div class="contact-glow"></div>
+    <div class="reveal">
+      <p class="section-tag">Get in Touch</p>
+      <h2 class="section-title">Let's work together.</h2>
+      <p class="contact-desc">Have questions, collaboration ideas, or just want to talk about data? I'd love to hear from you.</p>
+      <div class="contact-links">
+        <a href="mailto:adebukolaoluwatobi@gmail.com" class="contact-btn"><span class="icon">✉</span> Email</a>
+        <a href="https://www.linkedin.com/in/oluwatobi-olatunbosun" target="_blank" class="contact-btn"><span class="icon">in</span> LinkedIn</a>
+        <a href="https://x.com/tobilayemi" target="_blank" class="contact-btn"><span class="icon">𝕏</span> X (Twitter)</a>
+      </div>
+    </div>
+    <div class="footer">
+      <p>&copy; 2026 Oluwatobi Olatunbosun. Crafted with purpose.</p>
+    </div>
+  </section>
 
-												During my presentation, I highlighted the powerful BI tools integrated into NAWS and shared insights on optimizing data visualization for effective communication. 
-												<p></p>Key takeaways were:
-												<p></p>✔ Choosing the right charts and visual representations for different data types
-												<p></p>✔ Leveraging color and storytelling to enhance data interpretation
-												<p></p>✔ Utilizing diverse chart types to convey insights effectively
-												<p></p>✔ Improving audience engagement through data-driven narratives
-																							.</h3>
-										</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/BAOSystems.jpeg" alt="" /></a>
-										<header>
-											<h3>I had the privilege of participating in an Event & Tracker Configuration training session on DHIS2, conducted by the BAO Systems team. This intensive training provided me with in-depth knowledge and hands-on experience in configuring and managing event-based and longitudinal tracking systems within DHIS2—a critical skill for effective health data management.
+  <script>
+    // Scroll reveal animation
+    const revealEls = document.querySelectorAll('.reveal');
+    const revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el) { revealObserver.observe(el); });
 
-												<p></p>Key learnings from the training included:
-												<p></p>✔ Setting up Event & Tracker programs to capture and manage individual-level data
-												<p></p>✔ Defining program stages, attributes, and data elements for streamlined data collection
-												<p></p>✔ Configuring program rules and indicators to automate calculations and improve data quality
-												<p></p>✔ Using dashboards and analytics tools to generate insights for decision-making
-												<p></p>✔ Enhancing data integrity and security within DHIS2 implementations.
-												
-												<p></p>This training reinforced my expertise in DHIS2 customization and further strengthened my ability to support Public health programs through data-driven solutions.</h3>
-										</header>
-									</article>
-									<article class="item">
-										<a href="https://drive.google.com/file/d/1BUHOoOQ-Z7nPPFsD_RzXgwsliA7ys7mQ/view?usp=sharing" class="image fit" target="_blank">
-											<img src="images/Screenshot 2025-03-19 111808.png" alt="Project Output Screenshot" />
-										</a>
-										
-										<header>
-											<h3>
-												<em>Click on the image to see the output of the project.</em>
-											</h3>
-										</h1></p><strong>Dr. Semmelweis and the Importance of Handwashing</Strong>
-										</p>I completed a data analysis project on Dr. Semmelweis’ discovery of handwashing and its impact on reducing maternal mortality. Using R and ggplot2, I explored historical hospital records to analyze how implementing handwashing influenced death rates.
-										
-										<p></p>Key tasks and insights from the project:
-										<p></p>✔ Data Wrangling: Loaded and structured yearly and monthly mortality data from CSV files.
-										<p></p>✔ Proportion of Deaths Analysis: Calculated the proportion of deaths per births for each year and month to observe trends.
-										<p></p>✔ Visualization with ggplot2:
-										
-										Created a yearly line plot, distinguishing mortality trends between two clinics.
-										Designed a monthly trend plot, adding a marker for when handwashing was introduced (June 1st, 1847).
-										<p></p>✔ Impact of Handwashing:
-										Added a handwashing_started column to categorize data before and after June 1847.
-										Compared the mean proportion of deaths before and after handwashing, showing a significant decline in mortality rates.
-										<p></p>This project reinforced my expertise in data visualization, statistical analysis, and storytelling with R, while also highlighting the power of data-driven decision-making in Public health.</h3>
-								</header>
-									</article>
-								</div>
-								<div class="col-4 col-12-mobile">
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/Picture1.jpg" alt="" /></a>
-										<header>
-											<h3><p>Data Quality Assurance (DQA) Expertise:</p>
-												<p></p>Ensuring data accuracy, completeness, and reliability is a core part of my work in Public Health data management. I have been actively involved in Data Quality Assurance (DQA) exercises, working closely with stakeholders to strengthen data systems for evidence-based decision-making.
-												
-												<p></p>Key Areas of My DQA Work Include:
-												<p></p>✔ Routine Data Quality Assessments (RDQA): Conducted systematic reviews of HIV program data, identifying gaps and ensuring compliance with reporting standards.
-												<p></p>✔ Data Verification & Validation: Cross-checked reported data against source documents to improve data integrity and consistency.
-												<p></p>✔ Capacity Building: Trained health facility staff on data management best practices, ensuring accurate data collection, entry, and reporting.
-												<p></p>✔ Automated DQA Dashboards: Leveraged BI tools to develop real-time data quality tracking systems, providing insights into data discrepancies.
-												<p></p>✔ Stakeholder Engagement: Worked with Government agencies, Donors, and Implementing partners to enhance data quality processes, ensuring alignment with National and Global reporting frameworks.
-												
-												<p>Through my DQA efforts, I have contributed to strengthening health information systems, leading to better program performance monitoring and improved Public Health outcomes.</p></h3>
-										</header> 
-									</article>
-									<article class="item">
-										<a href="#" class="image fit"><img src="images/DSC_8655.jpg" alt="" /></a>
-										<header>
-										<h1><P></p><strong>Public Speaking & Event Facilitation:</h1>
-											<P></p>I have extensive experience in public speaking and event management, particularly in facilitating high-level stakeholder engagements. A notable example is my role in the National HIV Surveillance Stakeholders Meeting, organized by NASCP with support from PHIS3.
+    // Skill bars animation
+    var skillsAnimated = false;
+    var skillSection = document.getElementById('skills-section');
+    var skillObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !skillsAnimated) {
+          skillsAnimated = true;
+          var bars = document.querySelectorAll('.skill-fill');
+          bars.forEach(function(bar, i) {
+            setTimeout(function() {
+              bar.style.width = bar.getAttribute('data-level') + '%';
+            }, i * 80);
+          });
+        }
+      });
+    }, { threshold: 0.2 });
+    if (skillSection) skillObserver.observe(skillSection);
 
-												<P></p>	During this event, I facilitated key discussions, ensuring a productive knowledge sharing among Public Health experts, Policymakers, and Stakeholders. My role included:
-													<P></p>✔ Engaging stakeholders to drive meaningful dialogue on HIV surveillance strategies.
-														<P></p>✔ Presenting insights on data-driven decision-making for national health programs.
-															<P></p>✔ Moderating discussions to align on key action points for improved surveillance and response.
-																<P></p>✔ Ensuring seamless event flow, coordinating sessions effectively for maximum impact.
+    // Active nav link on scroll
+    var sectionIds = ['home', 'about', 'portfolio', 'speaking', 'contact'];
+    var navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', function() {
+      var current = 'home';
+      sectionIds.forEach(function(id) {
+        var el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top < 200) current = id;
+      });
+      navLinks.forEach(function(link) {
+        if (link.getAttribute('href') === '#' + current) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, { passive: true });
+  </script>
 
-																	<P></p>This experience strengthened my ability to communicate complex ideas, engage diverse audiences, and manage large-scale public health events—skills that are crucial in driving data-informed decision-making.
-
-</h3>
-										</header>
-									</article>
-								</div>  
-							</div>
-
-						</div>
-					</section>
-
-				<!-- About Me -->
-					<section id="about" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About Me</h2>
-							</header>
-
-							<a href="#" class="image avatar "><img src="images/MGP-PstTobi1.jpg" alt="" /></a>
-
-							<p><strong>I work at the intersection of data, programs, and leadership. Over the years, I have supported public health and humanitarian initiatives across HIV, tuberculosis, and maternal and newborn health, helping teams strengthen systems and use information to guide action. 
-							
-							<p>My experience spans monitoring, evaluation, and learning, performance management, and digital data systems. I have led and supported the design of reporting structures, dashboards, and data collection processes that improve accountability, coordination, and decision making across programs.
-							
-							</p> <p>Beyond technical delivery, I take on leadership roles that focus on people and process. I collaborate with diverse teams, facilitate learning sessions, and provide strategic guidance that builds confidence in data use. I am committed to growing capacity, strengthening institutions, and enabling evidence informed decisions that translate into real world impact..</strong></p>
-
-						</div>
-											</section>
-
-				<!-- Contact -->
-					<section id="contact" class="four">
-						<div class="container">
-
-							<header>
-								<h2>Contact</h2>
-							</header>
-
-							<p><strong>Have questions, collaboration ideas, or just want to talk about data? 
-								I’d love to hear from you!</strong></p>
-
-							<form method="post" action="https://formspree.io/f/xeeeoolk">
-								<div class="row">
-									<div class="col-6 col-12-mobile"><input type="text" name="name" placeholder="Name" /></div>
-									<div class="col-6 col-12-mobile"><input type="text" name="email" placeholder="Email" /></div>
-									<div class="col-12">
-										<textarea name="message" placeholder="Message"></textarea>
-									</div>
-									<div class="col-12">
-										<input type="submit" value="Send Message" />
-									</div>
-								</div>
-							</form>
-
-						</div>
-					</section>
-
-			</div>
-
-		<!-- Footer -->
-			<div id="footer">
-
-				<!-- Copyright -->
-					<ul class="copyright">
-						<li>&copy; Oluwatobi Olatunbosun</li><li> <a href="https://www.linkedin.com/in/oluwatobi-olatunbosun">LinkedIn</a></li>
-					</ul>
-					
-					<span class="template-credit">
-      Design adapted from HTML5 UP
-    </span>
-
-			</div>
-
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
-
-	</body>
+</body>
 </html>
